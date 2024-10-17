@@ -1,7 +1,7 @@
 ## 1. Extract nouns from the user stories or specification
 
 ```
-# EXAMPLE USER STORIES:
+# USER STORIES:
 
 As a shop manager
 So I can know which items I have in stock
@@ -48,8 +48,6 @@ Items, name, unit_price, qty, Orders, customer_name, date_placed
 
 ## 2. Infer the Table Name and Columns
 
-Put the different nouns in this table. Replace the example with your own nouns.
-
 | Record                | Properties          |
 | --------------------- | ------------------  |
 | Items                 | name, unit_price, qty
@@ -66,7 +64,6 @@ Put the different nouns in this table. Replace the example with your own nouns.
 ## 3. Decide the column types.
 
 ```
-# EXAMPLE:
 
 Table: items
 id: SERIAL
@@ -110,7 +107,8 @@ CREATE TABLE items (
 
 CREATE TABLE orders (
   id SERIAL PRIMARY KEY,
-  customer_name VARCHAR(250)
+  customer_name VARCHAR(250),
+  date_placed DATE
 );
 
 CREATE TABLE items_orders (
