@@ -1,5 +1,5 @@
 from lib.database_connection import DatabaseConnection
-from lib.template_repository import TemplateRepository
+from lib.item_repository import TemplateRepository
 
 
 # Connect to the database
