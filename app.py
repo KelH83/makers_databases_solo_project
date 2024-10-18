@@ -34,7 +34,7 @@ elif selection == '2':
         print(item)
 
 elif selection == '3':
-    print("Here's a list of all orders:\n")
+    print("\nHere's a list of all orders:\n")
     order_repository = OrderRepository(connection)
     orders = order_repository.all()
     for order in orders:
@@ -45,7 +45,7 @@ elif selection == '4':
     date_placed = input("What is the order date?")
     order_repository = OrderRepository(connection)
     order_repository.create(Order(customer_name,date_placed))
-    print(f"Order successfully added")
+    print("\nOrder successfully added\n")
     orders = order_repository.all()
     for order in orders:
         print(order)
@@ -57,21 +57,21 @@ elif selection == '5':
         new_name = input('What is the new name? ')
         item_repository = ItemRepository(connection)
         item_repository.update(item_id, new_name)
-        print('Item successfully updated')
+        print('\nItem successfully updated\n')
         print(item_repository.find(new_name))
     elif update_option == '2':
         name = input('What is the item name? ')
         new_qty = input('What is the new qty? ')
         item_repository = ItemRepository(connection)
         item_repository.update(item_id, None, new_qty)
-        print('Item successfully updated')
+        print('\nItem successfully updated\n')
         print(item_repository.find(name))
     elif update_option == '3':
         name = input('What is the item name? ')
         new_unit_price = input('What is the new unit price? ')
         item_repository = ItemRepository(connection)
         item_repository.update(item_id, None, None, new_unit_price)
-        print('Item successfully updated')
+        print('\nItem successfully updated\n')
         print(item_repository.find(name))
 
 elif selection == '6':
@@ -79,7 +79,7 @@ elif selection == '6':
     new_name = input('What is the amended customer name? ')
     order_repository = OrderRepository(connection)
     order_repository.update(order_id, new_name)
-    print('Order successfully updated')
+    print('\nOrder successfully updated\n')
     print(order_repository.find(order_id))
 
 elif selection == '7':
@@ -95,5 +95,6 @@ else:
     items_orders_repository = ItemsOrdersRepository(connection)
     items_orders_repository.create(ItemsOrders(item_id, order_id))
     items = items_orders_repository.get_order_items(order_id)
+    print('\nItem successfully added to order\n')
     for item in items:
         print(item)
