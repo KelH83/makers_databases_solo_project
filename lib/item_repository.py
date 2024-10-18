@@ -25,7 +25,7 @@ class ItemRepository:
         rows = self._connection.execute(
             'SELECT * from items WHERE name = %s', [item_name])
         row = rows[0]
-        return Item(row["id"], row["name"], row["unit_price"], row["qty"])
+        return Item(row["name"], row["unit_price"], row["qty"],row["id"])
     
     # UPDATE
     def update(self, item_id, new_name = None, new_qty = None, new_unit_price = None):

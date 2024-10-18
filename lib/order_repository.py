@@ -25,7 +25,7 @@ class OrderRepository:
         rows = self._connection.execute(
             'SELECT * from orders WHERE id = %s', [order_id])
         row = rows[0]
-        return Order(row["id"], row["customer_name"], row["date_placed"])
+        return Order(row["customer_name"], row["date_placed"],row["id"])
     
     # UPDATE
     def update(self, order_id, new_name):
