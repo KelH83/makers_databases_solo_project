@@ -16,7 +16,7 @@ class ItemRepository:
         rows = self._connection.execute('SELECT * from items')
         items = []
         for row in rows:
-            item = Item(row["id"],row["name"], row["unit_price"], row["qty"])
+            item = Item(row["name"], row["unit_price"], row["qty"],row["id"])
             items.append(item)
         return items
     

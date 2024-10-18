@@ -26,7 +26,7 @@ def test_create_order(db_connection):
     db_connection.seed("seeds/shop.sql")
     repository = OrderRepository(db_connection)
 
-    repository.create(Order(4,"Mini Panther", '2024-10-6'))
+    repository.create(Order("Mini Panther", '2024-10-6',4))
 
     result = repository.all()
     assert result == [

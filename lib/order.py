@@ -1,5 +1,5 @@
 class Order:
-    def __init__(self, id, customer_name, date_placed):
+    def __init__(self,customer_name, date_placed, id=None):
         self.id = id
         self.customer_name = customer_name
         self.date_placed = date_placed
