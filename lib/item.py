@@ -1,5 +1,6 @@
 class Item:
-    def __init__(self, name, unit_price, qty):
+    def __init__(self, id, name, unit_price, qty):
+        self.id = id
         self.name = name
         self.unit_price = unit_price
         self.qty = qty
@@ -8,4 +9,4 @@ class Item:
         return self.__dict__ == other.__dict__
     
     def __repr__(self):
-        return f"Name:{self.name}, Unit Price:{self.unit_price}, Qty:{self.qty}"
+        return f"Item ID:{self.id}, Name:{self.name}, Unit Price:{self.unit_price}, Qty:{self.qty}"

@@ -16,7 +16,7 @@ class ItemRepository:
         rows = self._connection.execute('SELECT * from items')
         items = []
         for row in rows:
-            item = Item(row["name"], row["unit_price"], row["qty"])
+            item = Item(row["id"],row["name"], row["unit_price"], row["qty"])
             items.append(item)
         return items
     
@@ -25,7 +25,7 @@ class ItemRepository:
         rows = self._connection.execute(
             'SELECT * from items WHERE name = %s', [item_name])
         row = rows[0]
-        return Item(row["name"], row["unit_price"], row["qty"])
+        return Item(row["id"], row["name"], row["unit_price"], row["qty"])
     
     # UPDATE
     def update(self, item_id, new_name = None, new_qty = None, new_unit_price = None):
@@ -33,17 +33,17 @@ class ItemRepository:
             self._connection.execute('UPDATE items SET name = %s WHERE id = %s', [new_name, item_id])
             rows = self._connection.execute('SELECT * FROM items WHERE id = %s', [item_id])
             row = rows[0]
-            return Item(row["name"], row["unit_price"], row["qty"])
+            return Item(row["id"], row["name"], row["unit_price"], row["qty"])
         elif new_qty is not None:
             self._connection.execute('UPDATE items SET qty = %s WHERE id = %s', [new_qty, item_id])
             rows = self._connection.execute('SELECT * FROM items WHERE id = %s', [item_id])
             row = rows[0]
-            return Item(row["name"], row["unit_price"], row["qty"])
+            return Item(row["id"], row["name"], row["unit_price"], row["qty"])
         else:
             self._connection.execute('UPDATE items SET unit_price = %s WHERE id = %s', [new_unit_price, item_id])
             rows = self._connection.execute('SELECT * FROM items WHERE id = %s', [item_id])
             row = rows[0]
-            return Item(row["name"], row["unit_price"], row["qty"])
+            return Item(row["id"], row["name"], row["unit_price"], row["qty"])
     
     # DELETE
     def delete(self, item_id):
